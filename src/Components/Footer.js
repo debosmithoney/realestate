@@ -36,6 +36,9 @@ const Column = styled.div`
           margin-left:40px;
           @media(max-width:500px){
               margin-left:0;
+                        @media(max-width:500px){
+              margin-left:0;
+          }
           }
       }
   }
