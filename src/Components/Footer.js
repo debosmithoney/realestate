@@ -83,7 +83,7 @@ font-size:16px;
 `;
 const Instagram =styled(RiInstagramLine)`
 &:hover{
-    color:#8a3ab9;
+    color:#fb3958;
 }
 `;
 const Linkdin =styled(RiLinkedinFill)`
@@ -118,14 +118,17 @@ const Footer = () => {
                     </Column>
                     <Column>
                         <Title>Social</Title>
+                        
                         <Links onClick={(e) => {
                             window.open('https://www.facebook.com/HoneyDC2000/');
-                            }}><Facebook/>  Facebook</Links>
+                            }} css={` &:hover{
+                                color:#385898;
+                            }`}><Facebook/>  Facebook</Links>
                         <Links onClick={(e) => {
                             window.open('https://www.instagram.com/debosmithoney/');
                             }}><Instagram/>  Instagram</Links>
                         <Links onClick={(e) => {
-                            window.open('https://www.instagram.com/debosmithoney/');
+                            window.open('https://www.linkedin.com/in/debosmit-choudhury-38387287/');
                             }}><Linkdin/>  Linkedin</Links>
                         <Links onClick={(e) => {
                             window.open('https://twitter.com/DebosmitHoney');
