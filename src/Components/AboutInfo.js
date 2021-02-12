@@ -1,8 +1,7 @@
-import React , {useEffect}  from 'react';
-import { useInView } from "react-intersection-observer"; 
+import React  from 'react';
 import styled from 'styled-components';
 import { Button } from './Button';
-import { motion, useAnimation} from 'framer-motion';
+import { motion} from 'framer-motion';
 
 const Section = styled.section`
  width:100%;
@@ -66,14 +65,6 @@ const ColumnRight = styled.div`
 `;
 const AboutInfo = ({heading,paragraphThree,paragraghOne,paragraghTwo,buttonLabel,reverse,image}) => {
     
-    const animation = useAnimation();    
-        const [ref, inView, entry] = useInView({ threshold: 0.2 });
-    
-        useEffect(() => {
-          if (inView) {
-            animation.start("visible");
-          }
-        }, [animation, inView]);
     
         const variants = {
             visible: {
@@ -82,7 +73,7 @@ const AboutInfo = ({heading,paragraphThree,paragraghOne,paragraghTwo,buttonLabel
               transition: { duration: 1.5},
             },
             hidden: {
-              y: entry,
+              y: 0,
               opacity: 0,
             },
         }
@@ -92,28 +83,28 @@ const AboutInfo = ({heading,paragraphThree,paragraghOne,paragraghTwo,buttonLabel
         <Section >
             
             <Container >
-                <ColumnLeft ref={ref} reverse={reverse}>
+                <ColumnLeft  reverse={reverse}>
                     <motion.h1 
-                    animate={animation}
+                    animate={'visible'}
                     initial={{y:-100,opacity:0.1}}
                     variants={variants}>{heading}</motion.h1>
                     <motion.p
-                    animate={animation}
+                    animate={'visible'}
                     initial={{y:-100,opacity:0.1}}
                     variants={variants}>{paragraphThree} </motion.p>
                     <motion.p
-                    animate={animation}
+                    animate={'visible'}
                     initial={{y:-100,opacity:0.1}}
                     variants={variants}>{paragraghTwo} </motion.p>
                     <motion.p
-                    animate={animation}
+                    animate={'visible'}
                     initial={{y:-100,opacity:0.1}}
                     variants={variants}>{paragraghOne}</motion.p>
                     <Button to="/contact" primary="true">{buttonLabel}</Button>
                 </ColumnLeft>
-                <ColumnRight reverse={reverse} ref={ref} onReset='false'>
+                <ColumnRight reverse={reverse}  onReset='false'>
                 <motion.img 
-                animate={animation}
+                animate={'visible'}
                 initial={{y:100,opacity:0.1}}
                 variants={variants}
                 src={image} alt="home" /></ColumnRight>

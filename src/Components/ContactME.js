@@ -1,8 +1,7 @@
-import React , {useEffect , useRef, useState}  from 'react';
+import React   from 'react';
 import styled from 'styled-components';
 import {Button} from '../Components/Button';
 import { motion } from 'framer-motion';
-import {registerObserver} from './RegisterObserver';
 
 
 const Section = styled.section`
@@ -88,13 +87,6 @@ const ContMAil = styled.div`
 
 
 const ContactME = ({heading,paragraphThree,paragraghOne,paragraghTwo,reverse,image}) => {
-    const StartRef = useRef(null);
-    const [Animate,SetAnimate] = useState('hidden');
-
-    useEffect(() => {
-        registerObserver(StartRef.current,SetAnimate);
-    },[])
-
     const variants = {
         visible: {
           y: 0,
@@ -111,21 +103,21 @@ const ContactME = ({heading,paragraphThree,paragraghOne,paragraghTwo,reverse,ima
         
         <Section >
             <Container >
-                <ColumnLeft ref={StartRef} reverse={reverse}>
+                <ColumnLeft reverse={reverse}>
                     <motion.h1 
-                    animate={Animate}
+                    animate={'visible'}
                     initial={{y:0,opacity:0}}
                     variants={variants}>{heading}</motion.h1>
                     <motion.p css={`font-size:20px;`}
-                    animate={Animate}
+                    animate={'visible'}
                     initial={{y:0,opacity:0}}
                     variants={variants}>{paragraphThree} </motion.p>
                     <motion.p
-                    animate={Animate}
+                    animate={'visible'}
                     initial={{y:0,opacity:0}}
                     variants={variants}>{paragraghOne} </motion.p>
                     <motion.p
-                    animate={Animate}
+                    animate={'visible'}
                     initial={{y:0,opacity:0}}
                     variants={variants}>{paragraghTwo}</motion.p>
                     <Cont>
@@ -140,9 +132,9 @@ const ContactME = ({heading,paragraphThree,paragraghOne,paragraghTwo,reverse,ima
                         </Button>
                     </ContMAil></Cont>
                 </ColumnLeft>
-                <ColumnRight reverse={reverse} ref={StartRef} onReset='false'>
+                <ColumnRight reverse={reverse} onReset='false'>
                 <motion.img 
-                animate={Animate}
+                animate={'visible'}
                 initial={{y:100,opacity:0.1}}
                 variants={variants}
                 src={image} alt="home" /></ColumnRight>
