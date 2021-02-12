@@ -35,7 +35,8 @@ const Column = styled.div`
       & h1{
           margin-left:40px;
           @media(max-width:500px){
-              margin-left:10px;
+              width:80%;
+              margin:0 auto;
           }
       }
   }
